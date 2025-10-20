@@ -26,3 +26,112 @@ INSERT INTO clientes (nome, idade, cidade, estado, renda_mensal, data_cadastro, 
 ('Tatiane Lima', 29, 'Rio de Janeiro', 'RJ', 4400.00, '2023-04-22', 'tatiane.lima@email.com'),
 ('Rodrigo Alves', 28, 'Brasília', 'DF', 5100.00, '2023-05-14', 'rodrigo.alves@email.com'),
 ('Letícia Torres', 26, 'Campinas', 'SP', 3000.00, '2023-01-19', 'leticia.torres@email.com'),
+
+1 - Selecione todos os registros.
+select * from clientes;
+
+2 - Mostre apenas nome e idade.
+select nome,idade from clien tes;
+
+3 - Liste os clientes deSão Paulo.
+select * from clientes where cidade = "São Paulo";
+
+4 - Liste clientes com idade maior que 30.
+select * from clientes where idade > 30;
+
+5 - Mostre clientes que moram fora do estado de SP.
+select * from clientes where estado <> "SP";
+
+6 - Liste apenas nome, renda_mensal e estado.
+select nome, renda_mensal, estado from clientes;
+
+7 - Ordene os clientes por nome.
+select * from clientes order by nome;
+select * from clientes order by nome asc;
+
+8 - Ordene por renda decrescente.
+select * from clientes order by renda_mensal desc;
+
+9 - Mostre os 5 primeiros clientes.
+select * from clientes where id < 6;
+SELECT * FROM clientes ORDER BY id LIMIT 5;
+
+10 - Mostre clientes com idade entre 25 e 35.
+select * from clientes where idade >= 25 and idade <= 35;
+SELECT * FROM clientes WHERE idade BETWEEN 25 AND 35;
+
+11 - Clientes cadastrados em 2023.
+select * from clientes where year(data_cadastro)=2023;
+select * from clientes where data_cadastro 
+BETWEEN '2023-01-01 00:00:00' AND '2023-12-31 23:59:59';
+
+12 - Clientes com e-mail contendo “email”.
+		antonio.silva@gmail.com.br
+		antonio.pereira@gmail.com
+		maria@gmail.com
+ 
+SELECT * FROM clientes where email like '%email%; 
+SELECT * FROM clientes where email like 'antonio%;
+SELECT * FROM clientes where email like '%br;
+
+13 - Clientes cujo nome começa com “A”.
+select * from clientes where nome like 'A%';
+
+14 - Clientes cujo nome termina com “a”.
+select * from clientes where nome like '%a';
+
+15 - Clientes com cidade “Campinas” ou “Curitiba”.
+select * from clientes where cidade="Campinas" or cidade="Curitiba";
+select * from clientes where cidade in ("Campinas","Curitiba");
+
+16 - Clientes de “SP” e renda > 4000.
+select * from clientes where estado='SP' AND renda_mensal > 4000;
+
+17 - Clientes com renda_mensal igual a 5100.
+select * from clientes where renda_mensal=5100;
+
+18 - Clientes cuja idade não é nula.
+SELECT * FROM clientes WHERE idade IS NOT NULL;
+
+19 - Contar total de clientes.
+SELECT * FROM clientes;
+SELECT COUNT(*) AS total_clientes FROM clientes;
+SELECT COUNT(id) AS total_clientes FROM clientes;
+select nome, renda_mensal as salario from clientes;
+
+20 - Contar clientes por estado.
+SELECT estado, COUNT(*) AS qtde FROM clientes GROUP BY estado;
+
+21 - Mostrar média de renda.
+SELECT AVG(renda_mensal) AS renda_media FROM clientes;
+
+22 - Maior renda.
+SELECT MAX(renda_mensal) AS maior_renda FROM clientes;
+
+23 - Menor renda.
+SELECT MIN(renda_mensal) AS menor_renda FROM clientes;
+
+24 - Soma total da renda.
+SELECT SUM(renda_mensal) AS soma_renda FROM clientes;
+
+25 - Média de idade.
+SELECT AVG(idade) AS idade_media FROM clientes;
+
+26 - Clientes com renda acima da média.
+SELECT * FROM clientes 
+WHERE renda_mensal > (SELECT AVG(renda_mensal) FROM clientes);
+
+27 - Mostrar nomes em ordem alfabética inversa.
+select * from clientes order by nome desc;
+
+28 - Mostrar clientes cadastrados antes de 2023.
+select * from cliente where year(data_cadastro) < 2023;
+
+29 - Mostrar mês de cadastro e nome.
+select month(data_cadastro) as Mês, nome from clientes;
+
+30 - Mostrar idade + 5 anos (projeção futura).
+SELECT nome, idade + 5 AS idade_futura FROM clientes;
+
+
+
