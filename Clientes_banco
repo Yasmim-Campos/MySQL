@@ -1,0 +1,28 @@
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    idade INT,
+    cidade VARCHAR(50),
+    estado CHAR(2),
+    renda_mensal DECIMAL(10,2),
+    data_cadastro DATE,
+    email VARCHAR(120)
+);
+
+INSERT INTO clientes (nome, idade, cidade, estado, renda_mensal, data_cadastro, email) VALUES
+('João Silva', 32, 'São Paulo', 'SP', 4800.50, '2023-01-15', 'joao.silva@email.com'),
+('Maria Souza', 27, 'Campinas', 'SP', 3200.00, '2023-02-10', 'maria.souza@email.com'),
+('Carlos Lima', 45, 'Curitiba', 'PR', 7500.00, '2022-12-05', 'carlos.lima@email.com'),
+('Ana Oliveira', 29, 'Salvador', 'BA', 2800.00, '2023-04-18', 'ana.oliveira@email.com'),
+('Pedro Santos', 38, 'Belo Horizonte', 'MG', 5100.00, '2023-05-01', 'pedro.santos@email.com'),
+('Juliana Costa', 31, 'Fortaleza', 'CE', 4200.75, '2023-01-25', 'juliana.costa@email.com'),
+('Rafael Souza', 24, 'Recife', 'PE', 3100.00, '2023-03-12', 'rafael.souza@email.com'),
+('Beatriz Silva', 36, 'São Paulo', 'SP', 6700.00, '2023-06-30', 'beatriz.silva@email.com'),
+('Eduardo Mendes', 41, 'Curitiba', 'PR', 5800.00, '2022-11-22', 'eduardo.mendes@email.com'),
+('Carla Ferreira', 30, 'Florianópolis', 'SC', 3900.00, '2023-07-10', 'carla.ferreira@email.com'),
+('André Rocha', 52, 'Goiânia', 'GO', 8900.00, '2023-02-20', 'andre.rocha@email.com'),
+('Fernanda Souza', 25, 'São Luís', 'MA', 2500.00, '2023-03-30', 'fernanda.souza@email.com'),
+('Gabriel Nunes', 33, 'Porto Alegre', 'RS', 4700.00, '2022-12-10', 'gabriel.nunes@email.com'),
+('Tatiane Lima', 29, 'Rio de Janeiro', 'RJ', 4400.00, '2023-04-22', 'tatiane.lima@email.com'),
+('Rodrigo Alves', 28, 'Brasília', 'DF', 5100.00, '2023-05-14', 'rodrigo.alves@email.com'),
+('Letícia Torres', 26, 'Campinas', 'SP', 3000.00, '2023-01-19', 'leticia.torres@email.com'),
