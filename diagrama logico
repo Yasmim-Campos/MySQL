@@ -1,0 +1,27 @@
+Table clientes {
+  id int [pk]
+  nome varchar(100)
+  email varchar (100)
+  cidade varchar (60)
+
+}
+table produtos {
+  id int [pk]
+  nome varchar (100)
+  preco decimal (10,2)
+  estoque int 
+
+}
+
+Table pedidos {
+  id int [pk]
+  data date 
+  cliente_id int [ref: > clientes.id]
+}
+
+Table intens_pedido {
+  pedido_id int [ref : > pedidos.id]
+  produto_id int [ref : > produtos.id]
+  quantidade int 
+
+}
