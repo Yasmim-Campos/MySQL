@@ -1,0 +1,45 @@
+create database loja_virtual;
+
+USE loja_virtual;
+
+-- Tabela CLIENTES (mantida da aula 1)
+DROP TABLE IF EXISTS clientes;
+CREATE TABLE clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(120) NOT NULL UNIQUE,
+  cidade VARCHAR(60)
+);
+
+-- Tabela PRODUTOS
+DROP TABLE IF EXISTS produtos;
+CREATE TABLE produtos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  preco DECIMAL(10,2) NOT NULL,
+  estoque INT DEFAULT 0
+);
+
+-- Tabela PEDIDOS
+DROP TABLE IF EXISTS pedidos;
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  data DATE,
+  cliente_id INT NOT NULL,
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+-- Tabela ITENS_PEDIDO
+DROP TABLE IF EXISTS itens_pedido;
+CREATE TABLE itens_pedido (
+  pedido_id INT NOT NULL,
+  produto_id INT NOT NULL,
+  quantidade INT NOT NULL,
+  PRIMARY KEY (pedido_id, produto_id),
+  FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
+  FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);
+
+INSERT INTO clientes(nome,email,cidade,estado,renda)VALUES
+('João Silva' , 'joao@email.com','São Paulo','SP',4500.00), 
+('Maria Souza' , 'maria@email.com','Curitiba','PR',3200.00);
