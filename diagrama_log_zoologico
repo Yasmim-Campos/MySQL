@@ -1,0 +1,96 @@
+
+Table especie {
+  id_especie int (PK)
+  nome_comum varchar (100)
+  nome_cientifico varchar (100)
+  status_conservação int (100)
+  tipo_dieta varchar(100)
+  região_nativa varchar(100)
+  observacoes varchar(100)
+}
+
+Table recinto {
+  id_recinto int (PK)
+  nome varchar (30)
+  tipo_habitat varchar (50)
+  localização varchar (40)
+  capacidade int 
+  observações text 
+}
+
+Table animal {
+  id_animal int (PK)
+  id_especie int [ref: > especie.id_especie]
+  id_recinto int [ref: > recinto.id_recinto]
+  nome varchar (30)
+  sexo varchar (30)
+  data_nascimento data 
+  data_chegada data 
+  origem varchar (30)
+  status varchar (30)
+}
+
+table funcionario {
+ id_funcionario int (PK)
+ nome varchar (30)
+ cargo varcgar (30) 
+ email varchar (50)
+ telefone int 
+ data_admissão data 
+ ativo varchar 
+}
+
+table veterinario {
+ id_veterinario  int (PK)
+ id_funcionario int [ref: > funcionario.id_funcionario]
+ CRMV varchar (30)
+ especialidade  varchar (30)
+}
+
+Table registro_medico {
+ id_registro  int (PK)
+ id_animal int [ref: > animal.id_animal]
+ id_veterinário  int [ref: > veterinario.id_veterinario]
+ data data 
+ diagnóstico text
+ tratamento text 
+ observações text 
+}
+
+table usuario {
+ id_usuario int (PK)
+ nome varchar (30)
+ email varchar (30)
+ senha varchar (15)
+ telefone int 
+ data_cadastro data 
+}
+
+table ingresso {
+ id_ingresso  int (PK)
+ id_usuario int [ref: > usuario.id_usuario]
+ tipo varchar (10)
+ data_visita data 
+ valor_pago float 
+ status varchar (10)
+}
+
+table evento {
+ id_evento int (PK)
+ título varchar (30)
+ descrição text
+ data_início data 
+ data_fim data 
+ local varchar (30)
+ capacidade int 
+ pago enum ("S","N")
+}
+table doação_simbolica { 
+ id_adoção int (PK)
+ id_usuario int [ref: > usuario.id_usuario]
+ id_animal int [ref :> animal.id_animal]
+ data_início data 
+ data_fim data 
+ categoria varchar (30)
+ status varchar (15)
+}
