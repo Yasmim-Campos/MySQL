@@ -1,0 +1,15 @@
+CREATE DATABASE cadastro_clinica 
+default character set utf8 
+default collate utf8_general_ci ;
+
+CREATE table paciente (
+paciente_id int AUTO_INCREMENT PRIMARY KEY ,
+nome varchar (30) NOT NULL ,
+idade date ,
+telefone int (11) 
+email varchar (50); 
+)
+
+CREATE table consulta (
+consulta_id int AUTO_INCREMENT PRIMARY KEY , 
+data_consulta data , 
