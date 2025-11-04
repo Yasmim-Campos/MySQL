@@ -7,9 +7,43 @@ paciente_id int AUTO_INCREMENT PRIMARY KEY ,
 nome varchar (30) NOT NULL ,
 idade date ,
 telefone int (11) 
-email varchar (50); 
+emai varchar (50); 
 )
 
 CREATE table consulta (
-consulta_id int AUTO_INCREMENT PRIMARY KEY , 
-data_consulta data , 
+consulta_id int AUTO_INCREMENT PRIMARY KEY 
+data_consulta data ;
+
+)
+
+CREATE TABLE profissional (
+profisssional_id int AUTO_INCREMENT PRIMARY KEY , 
+nome_prossional ENUM('Dr. Carlos Lima' , 'Dra. Juliana Reis' , 'Dr. Fábio Santos') 
+especialidade ENUM ('Fisioterapia',' Estética Facial' ) ; 
+) 
+
+CREATE TABLE cep (
+cep int (8)PRIMARY KEY ,
+estado varchar (30) 
+cidade varchar (30) ;
+)
+
+CREATE TABLE forma_pagamento (
+forma_pagamento-id int PRIMARY KEY , 
+forma_pagamento ENUM ('pix', 'dinheiro', 'cartao',)
+parcelamento ENUM ('1X', '2X' ) 
+
+) 
+
+CREATE TABLE consulta_tratamento (
+consulta_tratamento int PRIMARY KEY 
+
+
+
+)
+
+CREATE TABLE tratamento ( 
+tratamento_id int primary key ,
+tipo_tratamento ('Drenagem Linfática', 'Peeling Facial' , 'Acupuntura ', )
+
+)
