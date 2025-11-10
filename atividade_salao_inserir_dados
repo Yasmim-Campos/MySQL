@@ -1,0 +1,23 @@
+INSERT INTO pacientes (nome,idade,telefone,email,cidade,estado)
+values 
+('ana paula','25','1345345345','ana@email.com','Sao Paulo','SP'),
+('Calos','20','134534asda5','calos@email.com','Minas Gerais','MG');
+
+INTO INTO profissionais(nome, especialidade) VALUES 
+('DR.calos lima ', 'FFisioterapia'),
+
+INTO INTO tratamentos (nome,preco_base) VALUES 
+('Massagem relaxante',120.00), 
+('Drenagem Linfática',180.00),
+('Limpeza de pele ',150.00); 
+
+INSERT INTO VALUES (data_consulta,paciente_id,profissional_id,valor_total) values  
+
+insert into consulta_tratamento(consulta_id,tratamento_id,preco_aplicado) Valeus 
+
+(1,1,120.00),(1,2,180.00)
+(2,3,150.00);
+
+INSERTO INTO pagamentos(consulta_id,forma_pagamento,parcelas,status ) 
+values 
+
