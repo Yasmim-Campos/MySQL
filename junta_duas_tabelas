@@ -17,3 +17,20 @@ insert INTO cliente values (3,'Ana',1000,4);
 
 select * from cliente inner join uf on cliente.coduf = uf.coduf; 
 #inner join serve para junta duas tabelas mais ela tem q tem a mesma coisa 
+
+create table cidade (
+id_cidade int PRIMARY KEY, 
+nome varchar (30) ,
+coduf int ,
+foreign key (coduf) references uf (coduf) 
+);
+		
+create table cep (
+id_cep int PRIMARY KEY ,
+numcep char (8),
+id_cidade int , 
+foreign key (id_cidade) references cidade(id_cidade)
+);
+	
+INSERT INTO cidade values (1,'Guarulhos',1);
+INSERT INTO cep values(2,'07010000',1);
