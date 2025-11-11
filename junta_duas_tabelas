@@ -1,0 +1,19 @@
+create database crud1;
+use crud1; 
+
+create table uf
+	(coduf int primary key,estado char (2)); 
+
+create table cliente 
+	(codigo int primary key, nome varchar (30),salario decimal(12,2),
+	coduf int, foreign key (coduf) references uf(coduf));
+    
+INSERT INTO uf (coduf,estado) values 
+(1,'SP'),(2,'RJ'),(3,'MG'),(4,'SP');
+
+insert INTO cliente values (1,'Pedro',1000,1);
+insert INTO cliente values (2,'Maria',1000,1);
+insert INTO cliente values (3,'Ana',1000,4);
+
+select * from cliente inner join uf on cliente.coduf = uf.coduf; 
+#inner join serve para junta duas tabelas mais ela tem q tem a mesma coisa 
