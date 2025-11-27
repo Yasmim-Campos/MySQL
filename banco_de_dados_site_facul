@@ -1,0 +1,25 @@
+CREATE DATABASE salao;
+
+create table cadastro (
+
+id_cadastro INT AUTO_INCREMENT PRIMARY KEY , 
+nome_completo varchar (50),
+email varchar (50) unique ,
+senha varchar (30)
+);
+
+create table login (
+id_login INT AUTO_INCREMENT PRIMARY KEY,
+id_cadastro INT,
+senha VARCHAR(30),
+FOREIGN KEY (id_cadastro) REFERENCES cadastro(id_cadastro)
+);
+
+create table agendamento (
+id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+id cadastro INT ,
+servico enum ('Unhas', 'Sobrancelha','Depilação','Cabelos'),
+horario time,
+dia data ,
+FOREIGN KEY (id_cadastro) REFERENCES cadastro(id_cadastro)
+);
